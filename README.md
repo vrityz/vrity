@@ -215,12 +215,6 @@ Future directions:
 
 ---
 
-## License
-
-[MIT / Apache 2.0 — TBD]
-
----
-
 ## Status
 
 Vrity v0.1 is focused on correctness and structural integrity.
