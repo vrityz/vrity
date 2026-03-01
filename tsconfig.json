@@ -26,6 +26,6 @@
     "incremental": true,
     "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo"
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "tsup.config.ts", "vitest.config.ts"],
   "exclude": ["dist", "node_modules", "coverage", "**/*.test.ts", "**/*.spec.ts"]
 }
