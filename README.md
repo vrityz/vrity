@@ -1,7 +1,7 @@
 # Vrity
 
 <p align="center">
-  <img src="Vrity_Logo.jpg" width="240" alt="Vrity Logo" />
+  <img src="Vrity_Logo.png" width="240" alt="Vrity Logo" />
 </p>
 
 <h1 align="center">VRITY</h1>
