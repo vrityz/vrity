@@ -4,13 +4,12 @@
   "description": "A security-first software registry.",
   "main": "index.js",
   "scripts": {
+    "typecheck": "tsc -p tsconfig.json --noEmit",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier . --check",
     "format:fix": "prettier . --write",
-    "check": "pnpm -r run typecheck && pnpm lint && pnpm format",
-    "prepare": "husky",
-    "typecheck": "tsc -p tsconfig.json --noEmit"
+    "check": "pnpm typecheck && pnpm lint && pnpm format"
   },
   "keywords": [],
   "author": "",

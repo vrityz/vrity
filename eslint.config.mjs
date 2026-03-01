@@ -5,30 +5,22 @@ import prettierPlugin from 'eslint-plugin-prettier';
 import unusedImports from 'eslint-plugin-unused-imports';
 
 export default [
-  // Ignore build artifacts + deps
   {
-    ignores: [
-      '**/dist/**',
-      '**/build/**',
-      '**/coverage/**',
-      '**/node_modules/**',
-      '**/.turbo/**',
-      '**/.next/**',
-    ],
+    ignores: ['dist/**', 'coverage/**', 'node_modules/**'],
   },
 
   js.configs.recommended,
 
   ...tseslint.configs.recommendedTypeChecked.map((c) => ({
     ...c,
-    files: ['**/*.ts', '**/*.tsx'],
+    files: ['**/*.ts'],
   })),
 
   {
-    files: ['**/*.ts', '**/*.tsx'],
+    files: ['**/*.ts'],
     languageOptions: {
       parserOptions: {
-        projectService: true, // auto-detect tsconfigs
+        projectService: true,
         tsconfigRootDir: import.meta.dirname,
       },
     },
@@ -38,10 +30,10 @@ export default [
       'unused-imports': unusedImports,
     },
     rules: {
-      // Prettier as ESLint rule (CI fail if formatting off)
+      // Format = fail build nếu lệch
       'prettier/prettier': 'error',
 
-      // Useful TS correctness
+      // TS correctness (ăn bug thật)
       '@typescript-eslint/no-floating-promises': 'error',
       '@typescript-eslint/no-misused-promises': 'error',
       '@typescript-eslint/consistent-type-imports': [
@@ -49,14 +41,12 @@ export default [
         { prefer: 'type-imports', fixStyle: 'separate-type-imports' },
       ],
 
-      // Clean imports
+      // Imports sạch
       'unused-imports/no-unused-imports': 'error',
       'unused-imports/no-unused-vars': [
         'warn',
         { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
       ],
-
-      // Import hygiene
       'import/no-duplicates': 'error',
       'import/order': [
         'warn',
@@ -68,9 +58,7 @@ export default [
       ],
     },
     settings: {
-      'import/resolver': {
-        typescript: true,
-      },
+      'import/resolver': { typescript: true },
     },
   },
 ];
