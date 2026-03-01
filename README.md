@@ -27,18 +27,18 @@ No force override.
 
 Modern package distribution has a structural flaw:
 
-* Publish → immediately available
-* Install → always allowed
-* Security → optional, advisory, or external
+- Publish → immediately available
+- Install → always allowed
+- Security → optional, advisory, or external
 
 Vrity changes that contract.
 
 Every published artifact in Vrity:
 
-* Is evaluated for vulnerabilities
-* Has a recorded dependency graph snapshot
-* Has immutable metadata
-* Has a distribution state
+- Is evaluated for vulnerabilities
+- Has a recorded dependency graph snapshot
+- Has immutable metadata
+- Has a distribution state
 
 Distribution is conditional on evaluation state.
 
@@ -62,11 +62,11 @@ If an artifact is blocked, it is blocked.
 
 Each publish records:
 
-* Artifact digest
-* Dependency graph hash
-* Rule fingerprint
-* Vulnerability snapshot timestamp
-* Scan state
+- Artifact digest
+- Dependency graph hash
+- Rule fingerprint
+- Vulnerability snapshot timestamp
+- Scan state
 
 Evaluation state is frozen and auditable.
 
@@ -84,19 +84,19 @@ Baseline cannot be weakened.
 1. Upload tarball
 2. Secret scan
 3. Dependency graph extraction
+   - Use lockfile if present
+   - Otherwise resolve server-side
 
-   * Use lockfile if present
-   * Otherwise resolve server-side
 4. Vulnerability evaluation via OSV
 5. Assign distribution state
 6. Append immutable log entry
 
 ### Artifact States
 
-* `CLEAN` → install allowed
-* `WARN_HIGH` → install allowed with warning
-* `BLOCKED_CRITICAL` → install blocked
-* `PENDING_SCAN` → install blocked until scan completes
+- `CLEAN` → install allowed
+- `WARN_HIGH` → install allowed with warning
+- `BLOCKED_CRITICAL` → install blocked
+- `PENDING_SCAN` → install blocked until scan completes
 
 ---
 
@@ -104,20 +104,20 @@ Baseline cannot be weakened.
 
 **Publish (Block):**
 
-* `block_secrets`
-* `block_critical_cve`
+- `block_secrets`
+- `block_critical_cve`
 
 **Publish (Warn):**
 
-* `warn_high_cve`
+- `warn_high_cve`
 
 System invariants:
 
-* Immutable artifacts
-* Append-only publish log
-* Dependency graph snapshot
-* Provenance metadata
-* Install gate enforcement
+- Immutable artifacts
+- Append-only publish log
+- Dependency graph snapshot
+- Provenance metadata
+- Install gate enforcement
 
 ---
 
@@ -125,8 +125,8 @@ System invariants:
 
 An artifact can only be installed if:
 
-* It has been evaluated
-* It does not contain critical vulnerabilities
+- It has been evaluated
+- It does not contain critical vulnerabilities
 
 If security scan is pending, install is blocked.
 
@@ -136,13 +136,12 @@ If security scan is pending, install is blocked.
 
 Vrity is:
 
-* **Open-source core** — self-hostable, transparent, auditable
-* **Vrity Cloud** — managed offering with:
-
-  * Hosted registry
-  * Managed vulnerability sync
-  * High-availability scanning
-  * Enterprise operational guarantees
+- **Open-source core** — self-hostable, transparent, auditable
+- **Vrity Cloud** — managed offering with:
+  - Hosted registry
+  - Managed vulnerability sync
+  - High-availability scanning
+  - Enterprise operational guarantees
 
 The security model is identical between OSS and Cloud.
 
@@ -154,11 +153,11 @@ Cloud does not weaken enforcement.
 
 Vrity is not:
 
-* A package manager replacement
-* A full supply-chain signing platform (yet)
-* A policy scripting engine
-* A compliance dashboard
-* A vulnerability scanner SaaS
+- A package manager replacement
+- A full supply-chain signing platform (yet)
+- A policy scripting engine
+- A compliance dashboard
+- A vulnerability scanner SaaS
 
 It is a distribution gate with structural integrity.
 
@@ -190,10 +189,10 @@ npm install --registry=https://registry.vrity.dev
 
 If a package installs from Vrity:
 
-* It has been evaluated.
-* It does not contain known critical vulnerabilities (at publish time).
-* Its dependency graph was recorded.
-* Its security state is auditable.
+- It has been evaluated.
+- It does not contain known critical vulnerabilities (at publish time).
+- Its dependency graph was recorded.
+- Its security state is auditable.
 
 ---
 
@@ -211,17 +210,17 @@ Vrity enforces these constraints at the registry layer.
 
 v0.1:
 
-* Baseline security enforcement
-* Immutable logs
-* OSV-backed scanning
-* Install gating
+- Baseline security enforcement
+- Immutable logs
+- OSV-backed scanning
+- Install gating
 
 Future directions:
 
-* CI-bound publishing
-* Stronger provenance enforcement
-* Attestation transparency log
-* Supply-chain trust primitives
+- CI-bound publishing
+- Stronger provenance enforcement
+- Attestation transparency log
+- Supply-chain trust primitives
 
 ---
 

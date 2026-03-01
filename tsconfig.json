@@ -34,7 +34,7 @@
 
     /* Perf */
     "incremental": true,
-    "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo",
+    "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo"
   },
-  "exclude": ["dist", "node_modules", "coverage"],
+  "exclude": ["dist", "node_modules", "coverage"]
 }
