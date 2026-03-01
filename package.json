@@ -11,8 +11,14 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier . --check",
     "format:fix": "prettier . --write",
-    "check": "pnpm typecheck && pnpm lint && pnpm format",
-    "prepare": "husky"
+    "prepare": "husky",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "coverage": "vitest run --coverage",
+    "check": "pnpm typecheck && pnpm lint && pnpm format && pnpm test",
+    "build": "tsup",
+    "start": "node dist/main.js",
+    "dev": "node --watch dist/main.js"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +26,7 @@
   "packageManager": "pnpm@10.26.1",
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@vitest/coverage-v8": "^4.0.18",
     "eslint": "^10.0.2",
     "eslint-config-prettier": "^10.1.8",
     "eslint-import-resolver-typescript": "^4.4.4",
@@ -29,8 +36,10 @@
     "husky": "^9.1.7",
     "lint-staged": "^16.3.0",
     "prettier": "^3.8.1",
+    "tsup": "^8.5.1",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.56.1"
+    "typescript-eslint": "^8.56.1",
+    "vitest": "^4.0.18"
   },
   "lint-staged": {
     "*.{ts,tsx,js,mjs,cjs}": [
