@@ -5,9 +5,7 @@ import prettierPlugin from 'eslint-plugin-prettier';
 import unusedImports from 'eslint-plugin-unused-imports';
 
 export default [
-  {
-    ignores: ['dist/**', 'coverage/**', 'node_modules/**'],
-  },
+  { ignores: ['dist/**', 'coverage/**', 'node_modules/**'] },
 
   js.configs.recommended,
 
@@ -30,10 +28,10 @@ export default [
       'unused-imports': unusedImports,
     },
     rules: {
-      // Format = fail build nếu lệch
+      // Prettier = lint error (CI fail)
       'prettier/prettier': 'error',
 
-      // TS correctness (ăn bug thật)
+      // Bug-catchers (đáng tiền)
       '@typescript-eslint/no-floating-promises': 'error',
       '@typescript-eslint/no-misused-promises': 'error',
       '@typescript-eslint/consistent-type-imports': [
@@ -41,7 +39,7 @@ export default [
         { prefer: 'type-imports', fixStyle: 'separate-type-imports' },
       ],
 
-      // Imports sạch
+      // Hygiene
       'unused-imports/no-unused-imports': 'error',
       'unused-imports/no-unused-vars': [
         'warn',

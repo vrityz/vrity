@@ -2,14 +2,17 @@
   "name": "vrity",
   "version": "0.1.0",
   "description": "A security-first software registry.",
-  "main": "index.js",
+  "private": true,
+  "type": "module",
+  "main": "dist/main.js",
   "scripts": {
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier . --check",
     "format:fix": "prettier . --write",
-    "check": "pnpm typecheck && pnpm lint && pnpm format"
+    "check": "pnpm typecheck && pnpm lint && pnpm format",
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "",

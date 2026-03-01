@@ -16,9 +16,9 @@
     "noImplicitOverride": true,
     "noFallthroughCasesInSwitch": true,
 
-    "resolveJsonModule": true,
     "verbatimModuleSyntax": true,
     "isolatedModules": true,
+    "resolveJsonModule": true,
 
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
