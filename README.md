@@ -1,5 +1,15 @@
 # Vrity
 
+<p align="center">
+  <img src="Vrity_Logo.jpg" width="240" alt="Vrity Logo" />
+</p>
+
+<h1 align="center">VRITY</h1>
+
+<p align="center">
+  A security-first software registry.
+</p>
+
 > A trust-enforced JS registry.
 > If it hasn’t been evaluated, it can’t be distributed.
 
